@@ -7,7 +7,7 @@
     <title>sqlglot formatter/translator</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script onload="main()" type="module" src="https://cdn.jsdelivr.net/pyodide/v0.26.3/full/pyodide.js"></script>
+    <script onload="main()" type="module" src="./dist/pyodide.js"></script>
 </head>
 
 <body>
@@ -114,9 +114,7 @@
                 });
             } else {
                 pyodide = await loadPyodide();
-                console.log(pyodide);
-                await pyodide.loadPackage("https://files.pythonhosted.org/packages/78/6d/97b60d4d5249a1bea207e7319b818e25cba1bf993e132f050ea533fe0867/sqlglot-25.29.0-py3-none-any.whl");
-                const sqlglot = await pyodide.pyimport("sqlglot");
+                await pyodide.loadPackage("sqlglot");
 
                 loadFormatSql();
 
